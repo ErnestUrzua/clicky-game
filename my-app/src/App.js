@@ -8,12 +8,12 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-      <div>
-        <Navbar />
-        <Main />
-        <Cards />
-        <Footer />
-      </div>
+    <div>
+      <Navbar />
+      <Main />
+      <Cards />
+      <Footer />
+    </div>
   );
 }
 
