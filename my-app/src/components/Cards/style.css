@@ -1,5 +1,22 @@
-img {
-    width: 50px; 
+/* img {
+    width: 25px; 
     margin: 10px;
     border-radius: 10px;
+} */
+
+/* .card-img {
+    width: 35% !important;
+} */
+
+/* on hover of card */
+.card :hover {
+    /* width: 102% !important; */
+    /* opacity: 70% !important; */
+    filter: sepia(.8);
+}
+
+.card {
+    width: 25%;
+    display: inline-block;
+    margin: 5px;
 }

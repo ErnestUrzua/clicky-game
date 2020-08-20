@@ -15,12 +15,19 @@ class Main extends Component {
 
 
   shuffleIndex = () => {
+    const newArr = []; //new array to push into randomly
+    var rand = 0;
     const newState = { ...this.state };
     //shuffle indexs  
-    for (let i = 0; i < Img.length-1; i++) {
+    for (let i = 0; i < Img.length; i++) {
       //apply logic here
+        
+        rand = Math.floor(Math.random() * Img.length);
+        newArr.push(Img[rand]);//push random index into new arr
+      
     }
-    console.log(Img)
+
+    console.log(newArr);
 
     //update state variables
     this.setState(newState);
@@ -76,8 +83,8 @@ class Main extends Component {
         </div>
 
         <div className="container-fluid p-2 col-9 justify-content-center">
-          {/* Loop through all the items in the static list  */}
           {
+            /* Loop through all the items in the static list  */
             //shuffleitems using shuffle data function
             //Img = shuffledata; 
             //component did mount
