@@ -4,7 +4,6 @@ import Img from "../images.json";
 import Cards from "../components/Cards";
 
 
-
 class Main extends Component {
   //holds are game information
   state = {
@@ -14,19 +13,56 @@ class Main extends Component {
     clicked: false
   };
 
+
+  shuffleIndex = () => {
+    const newState = { ...this.state };
+    //shuffle indexs  
+    for (let i = 0; i < Img.length-1; i++) {
+      //apply logic here
+    }
+    console.log(Img)
+
+    //update state variables
+    this.setState(newState);
+  }
+
+
   handleItemClick = event => {
-    const id = event.target.id;
-    console.log(id);
-
-    //check is clicked = true
-    //if it is, no points and reset score, and change all clicked to false,, reset game
-    // keep top score and check if ending score is > topscore.  
-    //else add point and change clicked to true
+    const id = event.target.id;//select the id of the picture clicked
+    console.log("Clicked ID:" + id);
+    const newState = { ...this.state }; //temp variable to hold our state info
 
 
-    //
+    if (Img[id].clicked === false) {
+      Img[id].clicked = true; //set to true when img is clicked
+      newState.score++; //add a point to score
+    }
+
+    else {
+      if (this.state.score > this.state.topScore) {
+        newState.topScore = this.state.score;//make current score the top score
+      }
+
+      newState.score = 0; //set score back to 0
+      // Img.forEach(element => {
+      //   console.log(element)
+      //     Img[element].clicked = false;
+      // });
+
+      //reset clicked flags to false
+      for (let i = 0; i < Img.length; i++) {
+        Img[i].clicked = false;
+      }
+
+      console.log("Game Restart");
+      //console.log(Img)
+    }
 
 
+    //update state variables
+    this.setState(newState);
+
+    this.shuffleIndex();
   }
 
   render() {
@@ -61,14 +97,9 @@ class Main extends Component {
   }
 }
 
-console.log(Img);
-
 
 //randomize images function
 //use randome number generator math.random, 1-12
 //i = img.length
-
-//this.state
-
 
 export default Main;
