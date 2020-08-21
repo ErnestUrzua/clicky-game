@@ -16,7 +16,8 @@
 }
 
 .card {
-    width: 25%;
+    width: 20%;
     display: inline-block;
     margin: 5px;
+    left: 10%;
 }

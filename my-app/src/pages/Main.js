@@ -62,7 +62,7 @@ class Main extends Component {
     this.shuffleIndex();
   }
 
-  
+
   render() {
     return (
       <div>
