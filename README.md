@@ -17,5 +17,6 @@ Images get shuffled after each click for added difficulty
 `npm start`
 
 or go to Github live page
+- [Live Link to app](https://ernesturzua.github.io/clicky-game/)
 
 
