@@ -5,4 +5,10 @@
 
 p {
   text-align: center;
+  font-size: 50px;
+  font-family: 'Bangers', cursive !important;
+}
+
+html {
+  font-family: 'Bangers', cursive !important;
 }

@@ -1,3 +1,12 @@
-nav.navbar.navbar-default {
+nav.navbar.navbar-default.navbar-brand {
   margin-bottom: 0;
+  font-family: 'Bangers', cursive !important;
+}
+
+.navbar-brand {
+  font-family: 'Bangers', cursive !important;
+}
+
+.akali {
+  font-size: xx-large;
 }

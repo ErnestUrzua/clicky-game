@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="navbar-brand">
-        Clicky Game 
+        KDA <span className= "akali">Akali</span> Clicky Game 
         </div>
     </nav>
   );

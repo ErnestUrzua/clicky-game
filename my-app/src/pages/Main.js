@@ -5,7 +5,7 @@ import Cards from "../components/Cards";
 
 
 class Main extends Component {
-  //holds are game information
+  //holds our game information
   state = {
     score: 0,
     topScore: 0,
@@ -13,48 +13,39 @@ class Main extends Component {
     clicked: false
   };
 
-
+  //function that shuffles indexs
   shuffleIndex = () => {
-    const newArr = []; //new array to push into randomly
+
     var rand = 0;
-    const newState = { ...this.state };
     //shuffle indexs  
-    for (let i = 0; i < Img.length; i++) {
+    for (let i = Img.length - 1; i > 0; i--) {
       //apply logic here
-        
-        rand = Math.floor(Math.random() * Img.length);
-        newArr.push(Img[rand]);//push random index into new arr
-      
+      rand = Math.floor(Math.random() * (i + 1));
+      [Img[i], Img[rand]] = [Img[rand], Img[i]];
     }
-
-    console.log(newArr);
-
-    //update state variables
-    this.setState(newState);
   }
 
-
+  //handles the click on the pictures
   handleItemClick = event => {
     const id = event.target.id;//select the id of the picture clicked
     console.log("Clicked ID:" + id);
     const newState = { ...this.state }; //temp variable to hold our state info
 
 
-    if (Img[id].clicked === false) {
-      Img[id].clicked = true; //set to true when img is clicked
+    if (Img[id - 1].clicked === false) {
+      Img[id - 1].clicked = true; //set to true when img is clicked
       newState.score++; //add a point to score
+      console.log("add point");
+      console.log(Img);
     }
 
+    //restart and clear fields
     else {
       if (this.state.score > this.state.topScore) {
         newState.topScore = this.state.score;//make current score the top score
       }
 
       newState.score = 0; //set score back to 0
-      // Img.forEach(element => {
-      //   console.log(element)
-      //     Img[element].clicked = false;
-      // });
 
       //reset clicked flags to false
       for (let i = 0; i < Img.length; i++) {
@@ -65,13 +56,13 @@ class Main extends Component {
       //console.log(Img)
     }
 
-
     //update state variables
     this.setState(newState);
-
+    console.log("setting the newState");
     this.shuffleIndex();
   }
 
+  
   render() {
     return (
       <div>
@@ -85,8 +76,6 @@ class Main extends Component {
         <div className="container-fluid p-2 col-9 justify-content-center">
           {
             /* Loop through all the items in the static list  */
-            //shuffleitems using shuffle data function
-            //Img = shuffledata; 
             //component did mount
             this.state.Img.map(item => (
               <Cards
@@ -103,10 +92,5 @@ class Main extends Component {
     );
   }
 }
-
-
-//randomize images function
-//use randome number generator math.random, 1-12
-//i = img.length
 
 export default Main;
